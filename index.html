@@ -128,6 +128,13 @@
   .lead{font-size:14px;color:var(--muted);margin:0 0 6px} .lead b{color:var(--ink)}
   .foot{margin-top:28px;font-size:12px;color:var(--muted);text-align:center}
   a.link{color:var(--accent);font-weight:700}
+  /* spójny zestaw ikon (lucide, currentColor) */
+  .ic{width:1.05em;height:1.05em;display:inline-block;vertical-align:-0.16em;margin-right:.5em;
+    stroke:currentColor;stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  h1 .ic,.blockhdr .ic{color:var(--brand)}
+  .dot{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin-right:6px}
+  .dot.gold{background:var(--gold)}
+  .dot.white{background:#fff;box-shadow:inset 0 0 0 1px var(--neutral-border)}
   @media (max-width:720px){
     section.show{grid-template-columns:1fr}
     h1{font-size:24px}
@@ -137,22 +144,22 @@
 </style>
 
 <header class="top">
-  <h1>🎯 Gala VII — Centrum dowodzenia</h1>
+  <h1><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Gala VII — Centrum dowodzenia</h1>
   <p class="sub">Zamek Królewski · wt. 23.06.2026</p>
   <div class="facts">
     <span class="chip"><b>29</b> wręczeń (28 + ALK)</span>
     <span class="chip">Rejestracja + aperitif VIP <b>17:00</b></span>
     <span class="chip">Odprawa <b>8:00 + 16:00</b></span>
-    <span class="chip">🟡 złota = VIP</span>
-    <span class="chip">⚪ biała = goście</span>
+    <span class="chip"><span class="dot gold"></span>złota = VIP</span>
+    <span class="chip"><span class="dot white"></span>biała = goście</span>
   </div>
 </header>
 
 <div class="wrap">
   <nav class="tabs">
-    <button class="tab active" data-t="zespol">👥 Zespół + kontakty</button>
-    <button class="tab" data-t="harm">⏱️ Harmonogram</button>
-    <button class="tab" data-t="wolontariusze">🙋 Wolontariusze</button>
+    <button class="tab active" data-t="zespol"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Zespół + kontakty</button>
+    <button class="tab" data-t="harm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Harmonogram</button>
+    <button class="tab" data-t="wolontariusze"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>Wolontariusze</button>
   </nav>
 
   <!-- ============ ZESPÓŁ ============ -->
@@ -236,7 +243,7 @@
       <p class="poc"><b>Z czym:</b> laureat/finalista na miejscu — gdzie czeka, kiedy wchodzi; potwierdzenia laureatów/partnerów, ankiety.</p>
       <div class="meta"><span><b>Próba:</b> 12:00–15:30 (opieka na miejscu)</span><span><b>Gotowość:</b> potwierdzenia 22.06 · na miejscu po próbie</span></div>
     </div>
-  <div class="blockhdr">📇 Z czym do kogo (szybki indeks)</div>
+  <div class="blockhdr"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Z czym do kogo (szybki indeks)</div>
     <div class="ct"><span class="q">Rejestracja / identyfikator / opaska / gdzie mam miejsce</span><a href="tel:+48510038115">Maciej</a></div>
     <div class="ct"><span class="q">Gość VIP / złota opaska / aperitif</span><a href="tel:+48530202855">Zuzanna</a></div>
     <div class="ct"><span class="q">VIP najwyższego szczebla / sponsor</span><a href="tel:+48668821417">Kamil</a></div>
@@ -307,7 +314,7 @@
   border:1px solid var(--gold-border);border-radius:9999px;padding:2px 9px;margin-right:7px}
 </style>
     <p class="lead">21 wolontariuszy · zbiórka <b>8:00</b> (Cafe Zamek) · koordynator: <b>Maciej</b>. Wszyscy: <b>demontaż</b> po 20:15. <br>(Gala = 16:00–20:15 · MG = Mini Granty 10:45–14:00 · rano = przewóz/rozstawianie)</p>
-    <div class="blockhdr">🛡️ Stanowiska (posterunki) — koordynator + obsada</div>
+    <div class="blockhdr"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>Stanowiska (posterunki) — koordynator + obsada</div>
     <div class="vol" style="border-left:4px solid var(--ludzie)"><div class="vrow"><span class="vname">1 · Streaming / Transmisja</span><a class="vtel" href="tel:+48511008440">koord. Mateusz Wiśniewski · 511 008 440</a></div><div class="vmeta">Sala Koncertowa · próba 9:00 · MG 10:45–14:00 · Gala 18:00–20:00 · <b>obsada:</b> (solo)</div></div>
     <div class="vol" style="border-left:4px solid var(--ludzie)"><div class="vrow"><span class="vname">2 · Logistyka, materiały, montaż</span><a class="vtel" href="tel:+48511008440">koord. Mateusz Wiśniewski · 511 008 440</a></div><div class="vmeta">Skarbca / Wielka / piętro · 07:00–11:00 + doposażenie 16:30 · <b>obsada:</b> Antoni Rutkowski, Dawid Olczak, Filip Jaworski, Matylda Drwota, Tymoteusz Jęczmiński · identyfikatory: Alicja, Emilia, Gabrysia, Hania, Julia, Ula, Wiktoria Wikło, Zofia</div></div>
     <div class="vol" style="border-left:4px solid var(--ludzie)"><div class="vrow"><span class="vname">3 · Rejestracja VIP</span><span class="vtel">koord. Alicja Janek</span></div><div class="vmeta">Biurko „GOŚCIE VIP” (Skarbca/Sień) → Sala Koncertowa 17:00–18:00 · <b>obsada:</b> Hania Michalik, Miłosz Wiśniewski (od 13:10), Nikola Socha, Zofia Wyciszkiewicz</div></div>
@@ -316,7 +323,7 @@
     <div class="vol" style="border-left:4px solid var(--ludzie)"><div class="vrow"><span class="vname">6 · Laudacje, dyplomy, gift packi</span><a class="vtel" href="tel:+48605880039">koord. Emilia Cholewa · 605 880 039</a></div><div class="vmeta">Sala Wielka · 09:00–11:00 + część oficjalna · <b>obsada:</b> Gabrysia Kowalewska, Hania Michalik · gift packi Wielichowska: Wiktor Wilanowski, Tymoteusz Jęczmiński, Antoni Rutkowski</div></div>
     <div class="vol" style="border-left:4px solid var(--ludzie)"><div class="vrow"><span class="vname">7 · Rejestracja Uczestników</span><a class="vtel" href="tel:+48508091338">koord. Anna Golovko · 508 091 338</a></div><div class="vmeta">Skarbca (3 strefy) → Sień od 16:30 · rejestracja 17:00–17:30 · <b>obsada:</b> Florentyna Andrzejewska (16:00), Julia Jargieło, Martyna Piekarska, Matylda Drwota, Nikola Socha, Wiktoria Konikowska, Wiktor Wilanowski · MG: Emilia, Wiktoria Wikło, Zofia</div></div>
     <div class="vol" style="border-left:4px solid var(--ludzie)"><div class="vrow"><span class="vname">8 · Kierowanie ruchem i obsługa gości</span><a class="vtel" href="tel:+48533477763">koord. Filip Jaworski · 533 477 763</a></div><div class="vmeta">Wejścia / schody / hol · najintensywniej 17:00–20:05 · <b>obsada:</b> Dawid Olczak, Wiktoria Wikło · MG: Julia Jargieło, Nikola Socha</div></div>
-    <div class="blockhdr">🙋 Wszyscy wolontariusze (alfabetycznie, z telefonami)</div>
+    <div class="blockhdr"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>Wszyscy wolontariusze (alfabetycznie, z telefonami)</div>
     <div class="vol"><div class="vrow"><span class="vname">Alicja Janek</span><span class="vtel no">— brak nr</span></div><div class="vmeta">Gala: <b>Rejestracja VIP</b> · MG: Konferansjerka · rano: Identyfikatory</div></div>
     <div class="vol"><div class="vrow"><span class="vname">Anna Golovko</span><a class="vtel" href="tel:+48508091338">508 091 338</a></div><div class="vmeta"><span class="vtag">Nie (8:00)</span>Gala: <b>Rejestracja uczestników</b> · MG: Rejestracja prelegentów</div></div>
     <div class="vol"><div class="vrow"><span class="vname">Antoni Rutkowski</span><a class="vtel" href="tel:+48729966752">729 966 752</a></div><div class="vmeta">Gala: <b>Media, Giftpacki Wielichowska</b> · rano: przewóz + promo</div></div>
