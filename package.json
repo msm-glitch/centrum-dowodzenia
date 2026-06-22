@@ -1,0 +1,12 @@
+{
+  "name": "centrum-dowodzenia-gala-vii",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Centrum dowodzenia — VII Gala Stypendialna OFF (statyczna strona, samowystarczalna)",
+  "scripts": {
+    "start": "serve -s . -l $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
