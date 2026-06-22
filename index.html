@@ -297,9 +297,9 @@
   background:var(--bg-alt) var(--arrow) center/13px no-repeat;border:1px solid var(--hairline);
   opacity:0;transform:translateY(4px);transition:.18s ease;pointer-events:none}
 .vol:hover:after{opacity:1;transform:none}
-.vrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.vname{font-weight:700;font-size:14px;color:var(--ink)}
-.vtel{font-weight:700;color:var(--accent);text-decoration:none;white-space:nowrap;font-size:13px}
+.vrow{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.vname{font-weight:700;font-size:14px;color:var(--ink);line-height:1.35}
+.vtel{font-weight:700;color:var(--accent);text-decoration:none;font-size:13px;overflow-wrap:anywhere}
 .vtel.no{color:var(--muted-2);font-weight:600;font-size:12px}
 .vmeta{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.55}
 .vmeta b{color:var(--ink)}
