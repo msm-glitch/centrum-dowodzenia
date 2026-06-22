@@ -1,88 +1,147 @@
 <title>Gala VII — Centrum dowodzenia</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap');
   :root{
-    --bg:#f4f3ef; --card:#fff; --ink:#1c1b19; --muted:#6b6862; --line:#e3e0d8;
-    --dowodztwo:#b3261e; --obiekt:#2f5d8a; --ludzie:#c9821a; --ceremonia:#7a4ea3;
-    --media:#1f8a82; --vip:#b8860b; --laureaci:#3a7d44;
-    --hot:#fdeceb; --hotline:#f3c7c3;
+    /* surfaces */
+    --bg:#0a0e17; --bg2:#0e1320;
+    --glass:rgba(255,255,255,.045); --glass-2:rgba(255,255,255,.075);
+    --hairline:rgba(255,255,255,.09); --hairline-bright:rgba(255,255,255,.20);
+    --ink:#f4f6fb; --muted:#9aa3b5; --muted-2:#6b7488;
+    /* accents */
+    --accent:#5b9dff; --accent-deep:#1e3a8a; --accent-soft:rgba(91,157,255,.14);
+    --emerald:#34d399; --emerald-soft:rgba(52,211,153,.14);
+    --amber:#fbbf24; --amber-soft:rgba(251,191,36,.12);
+    /* group accents (bright for dark glass) */
+    --dowodztwo:#ff6b6b; --obiekt:#5b9dff; --ludzie:#f6b45a; --ceremonia:#c084fc;
+    --media:#2dd4bf; --vip:#f5c451; --laureaci:#4ade80;
+    --hot:rgba(255,107,107,.10); --hotline:rgba(255,107,107,.40);
+    --radius:24px; --radius-sm:16px;
+    --shadow:0 24px 60px -28px rgba(0,0,0,.85);
+    --inner:inset 0 1px 0 rgba(255,255,255,.06);
+    --arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%239aa3b5' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M7 7h10v10'/%3E%3C/svg%3E");
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.45;-webkit-text-size-adjust:100%}
-  .wrap{max-width:860px;margin:0 auto;padding:0 14px 60px}
-  header.top{padding:18px 14px 12px;max-width:860px;margin:0 auto}
-  h1{font-size:1.5rem;margin:0 0 2px;letter-spacing:-.02em}
-  .sub{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    min-height:100vh;background-attachment:fixed;
+    background:
+      radial-gradient(1100px 560px at 80% -8%, rgba(30,58,138,.40), transparent 60%),
+      radial-gradient(900px 520px at 4% 2%, rgba(45,212,191,.10), transparent 55%),
+      linear-gradient(180deg,var(--bg2),var(--bg))}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px 80px}
+  header.top{max-width:1040px;margin:0 auto;padding:34px 16px 14px}
+  h1{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:600;
+    font-size:2.15rem;line-height:1.04;margin:0 0 7px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:.92rem;margin:0 0 18px}
   /* facts strip */
-  .facts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px}
-  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;
-    padding:5px 11px;font-size:.8rem;font-weight:600;white-space:nowrap}
-  .chip b{color:var(--dowodztwo)}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+  .chip{background:var(--glass);border:1px solid var(--hairline);border-radius:999px;
+    padding:7px 13px;font-size:.8rem;font-weight:600;white-space:nowrap;color:var(--muted);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .chip b{color:var(--ink);font-weight:700}
   /* tabs */
-  nav.tabs{position:sticky;top:0;z-index:10;background:var(--bg);
-    display:flex;gap:6px;padding:10px 0;margin:6px 0 14px;border-bottom:1px solid var(--line)}
-  .tab{flex:1;text-align:center;padding:10px 6px;border-radius:10px;border:1px solid var(--line);
-    background:var(--card);font-weight:700;font-size:.92rem;cursor:pointer;color:var(--ink)}
-  .tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  nav.tabs{position:sticky;top:0;z-index:20;display:flex;gap:8px;padding:12px 0;margin:10px 0 22px;
+    background:linear-gradient(180deg,rgba(10,14,23,.94),rgba(10,14,23,.55));
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--hairline)}
+  .tab{flex:1;text-align:center;padding:12px 8px;border-radius:14px;border:1px solid var(--hairline);
+    background:var(--glass);font-weight:700;font-size:.9rem;cursor:pointer;color:var(--muted);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:.35s}
+  .tab:hover{color:var(--ink);border-color:var(--hairline-bright)}
+  .tab.active{color:#fff;border-color:rgba(91,157,255,.55);
+    background:linear-gradient(180deg,rgba(91,157,255,.22),rgba(30,58,138,.30));
+    box-shadow:0 0 0 1px rgba(91,157,255,.25),0 10px 30px -12px rgba(91,157,255,.6)}
+  /* sections become adaptive bento grids */
   section{display:none}
-  section.show{display:block;animation:f .2s ease}
-  @keyframes f{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-  /* person cards */
-  .card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--muted);
-    border-radius:12px;padding:13px 14px;margin:0 0 10px}
-  .card .row1{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  .av{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:inline-flex;
-    align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.95rem;
-    letter-spacing:.02em;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
-  .name{font-size:1.08rem;font-weight:800;letter-spacing:-.01em;flex:1}
-  .facesCta{display:block;text-align:center;background:var(--ink);color:#fff;text-decoration:none;
-    font-weight:800;padding:12px;border-radius:11px;margin:0 0 14px;font-size:.95rem}
-  .facesCta small{display:block;font-weight:600;opacity:.75;font-size:.76rem;margin-top:2px}
-  .badge{font-size:.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
-    padding:3px 8px;border-radius:6px;color:#fff;white-space:nowrap}
-  .tel{display:inline-block;margin:7px 0 2px;font-size:1.18rem;font-weight:800;
-    letter-spacing:.02em;text-decoration:none;color:var(--obiekt)}
-  .tel:before{content:"📞 "}
-  .role{font-size:.93rem;margin:4px 0 0}
-  .poc{font-size:.87rem;color:var(--muted);margin:5px 0 0}
+  section.show{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:14px;align-items:start;animation:f .35s ease}
+  @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .lead,.blockhdr,.ct,.ev,.note,.facesCta{grid-column:1/-1}
+  /* glass tile base (tactile depth) */
+  .card,.ct,.ev.key{position:relative;background:var(--glass);border:1px solid var(--hairline);
+    border-radius:var(--radius);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+    box-shadow:var(--shadow),var(--inner);
+    transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s,background .4s}
+  .card{padding:18px 18px 20px;margin:0;overflow:hidden;--g:var(--muted-2)}
+  .card:hover,.ct:hover{transform:translateY(-3px);border-color:var(--hairline-bright);
+    background:var(--glass-2);box-shadow:0 0 0 1px rgba(91,157,255,.35),0 30px 70px -28px rgba(0,0,0,.9)}
+  /* left accent glow bar */
+  .card:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:0 6px 6px 0;
+    background:var(--g);box-shadow:0 0 18px -2px var(--g)}
+  /* hover ArrowUpRight affordance */
+  .card:after{content:"";position:absolute;right:14px;bottom:14px;width:26px;height:26px;border-radius:50%;
+    background:var(--glass-2) var(--arrow) center/13px no-repeat;border:1px solid var(--hairline);
+    opacity:0;transform:translateY(4px);transition:.35s;pointer-events:none}
+  .card:hover:after{opacity:.9;transform:none}
+  .row1{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .row1 img{box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 8px 22px -8px rgba(0,0,0,.75)!important}
+  .av{flex:0 0 48px;width:48px;height:48px;border-radius:50%;display:inline-flex;
+    align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.95rem;letter-spacing:.02em}
+  .name{font-size:1.06rem;font-weight:700;letter-spacing:-.01em;flex:1;color:var(--ink)}
+  .facesCta{display:block;text-align:center;text-decoration:none;font-weight:700;padding:14px;
+    border-radius:var(--radius-sm);margin:0 0 4px;font-size:.95rem;color:#fff;
+    background:linear-gradient(180deg,rgba(91,157,255,.25),rgba(30,58,138,.3));border:1px solid rgba(91,157,255,.4)}
+  .facesCta small{display:block;font-weight:500;opacity:.8;font-size:.76rem;margin-top:2px}
+  /* status pill badge with ambient glow dot */
+  .badge{font-size:.62rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    padding:5px 11px 5px 23px;border-radius:999px;white-space:nowrap;position:relative;
+    background:var(--glass-2);border:1px solid var(--hairline)}
+  .badge:before{content:"";position:absolute;left:9px;top:50%;transform:translateY(-50%);
+    width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 9px 1px currentColor}
+  .tel{display:inline-flex;align-items:center;gap:8px;margin:13px 0 2px;font-size:1.12rem;font-weight:800;
+    letter-spacing:.01em;text-decoration:none;color:var(--accent)}
+  .tel:before{content:"";width:16px;height:16px;flex:0 0 16px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235b9dff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E") center/contain no-repeat}
+  .role{font-size:.92rem;margin:9px 0 0;color:#d7dbe6}
+  .poc{font-size:.85rem;color:var(--muted);margin:7px 0 0}
   .poc b{color:var(--ink)}
-  .meta{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 0;font-size:.8rem;color:var(--muted)}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0 0;font-size:.74rem;color:var(--muted)}
+  .meta span{background:var(--glass-2);border:1px solid var(--hairline);border-radius:999px;padding:5px 11px}
   .meta span b{color:var(--ink);font-weight:700}
-  .note{margin:7px 0 0;font-size:.8rem;background:#faf7ef;border:1px dashed var(--ludzie);
-    border-radius:7px;padding:6px 9px;color:#6a5320}
-  /* group colors */
-  .g-dowodztwo{border-left-color:var(--dowodztwo)} .b-dowodztwo{background:var(--dowodztwo)}
-  .g-obiekt{border-left-color:var(--obiekt)} .b-obiekt{background:var(--obiekt)}
-  .g-ludzie{border-left-color:var(--ludzie)} .b-ludzie{background:var(--ludzie)}
-  .g-ceremonia{border-left-color:var(--ceremonia)} .b-ceremonia{background:var(--ceremonia)}
-  .g-media{border-left-color:var(--media)} .b-media{background:var(--media)}
-  .g-vip{border-left-color:var(--vip)} .b-vip{background:var(--vip)}
-  .g-laureaci{border-left-color:var(--laureaci)} .b-laureaci{background:var(--laureaci)}
+  .note{margin:7px 0 0;font-size:.8rem;background:var(--amber-soft);border:1px solid rgba(251,191,36,.3);
+    border-radius:var(--radius-sm);padding:9px 12px;color:#f6d98a}
+  /* group accents drive bar glow + badge dot/text */
+  .g-dowodztwo{--g:var(--dowodztwo)} .b-dowodztwo{color:var(--dowodztwo)}
+  .g-obiekt{--g:var(--obiekt)} .b-obiekt{color:var(--obiekt)}
+  .g-ludzie{--g:var(--ludzie)} .b-ludzie{color:var(--ludzie)}
+  .g-ceremonia{--g:var(--ceremonia)} .b-ceremonia{color:var(--ceremonia)}
+  .g-media{--g:var(--media)} .b-media{color:var(--media)}
+  .g-vip{--g:var(--vip)} .b-vip{color:var(--vip)}
+  .g-laureaci{--g:var(--laureaci)} .b-laureaci{color:var(--laureaci)}
   /* timeline */
-  .blockhdr{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-    color:var(--muted);margin:18px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line)}
-  .ev{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .blockhdr{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.08rem;letter-spacing:0;
+    text-transform:none;color:var(--ink);margin:26px 0 4px;padding-bottom:10px;border-bottom:1px solid var(--hairline)}
+  .ev{display:flex;gap:14px;padding:13px 4px;border-bottom:1px solid var(--hairline)}
   .ev:last-child{border-bottom:0}
-  .t{flex:0 0 64px;font-weight:800;font-size:.84rem;color:var(--obiekt);padding-top:1px}
+  .t{flex:0 0 64px;font-weight:800;font-size:.82rem;color:var(--accent);padding-top:1px}
   .ev .what{flex:1}
-  .ev .what .w{font-size:.93rem}
-  .ev .what .who{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .ev .what .w{font-size:.92rem;color:#e7eaf2}
+  .ev .what .who{font-size:.78rem;color:var(--muted);margin-top:3px}
   .ev .what .who b{color:var(--ink)}
-  .ev.key{background:#fff;border:1px solid var(--hotline);border-radius:10px;padding:9px 11px;margin:6px 0}
-  .ev.key .t,.ev.key .what .w{color:var(--dowodztwo);font-weight:800}
-  .tagMG{display:inline-block;font-size:.62rem;font-weight:800;background:#e7f1ff;color:#1f5d8a;
-    border-radius:4px;padding:1px 5px;margin-left:6px;vertical-align:middle}
-  /* contacts list */
-  .ct{display:flex;justify-content:space-between;align-items:center;gap:10px;
-    background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:0 0 7px}
-  .ct .q{font-size:.92rem;font-weight:600;flex:1}
-  .ct a{font-weight:800;text-decoration:none;color:var(--obiekt);white-space:nowrap;font-size:.95rem}
-  .ct.crisis{background:var(--hot);border-color:var(--hotline)}
-  .ct.crisis a{color:var(--dowodztwo)}
-  .lead{font-size:.84rem;color:var(--muted);margin:0 0 12px}
-  .foot{margin-top:22px;font-size:.76rem;color:var(--muted);text-align:center}
-  a.link{color:var(--obiekt);font-weight:700}
+  .ev.key{padding:14px 16px;margin:8px 0;border-color:var(--hairline-bright);background:var(--glass-2);
+    box-shadow:var(--shadow),0 0 0 1px rgba(91,157,255,.18),0 0 32px -10px rgba(91,157,255,.5)}
+  .ev.key .t,.ev.key .what .w{color:#bcd4ff;font-weight:800}
+  .tagMG{display:inline-block;font-size:.62rem;font-weight:800;background:var(--accent-soft);color:var(--accent);
+    border:1px solid rgba(91,157,255,.3);border-radius:6px;padding:2px 7px;margin-left:7px;vertical-align:middle}
+  /* contacts index */
+  .ct{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;margin:0}
+  .ct .q{font-size:.9rem;font-weight:600;flex:1;color:#dfe3ec}
+  .ct a{font-weight:800;text-decoration:none;color:var(--accent);white-space:nowrap;font-size:.95rem}
+  .ct.crisis{background:var(--hot);border-color:var(--hotline);animation:pulseHot 3.2s ease-in-out infinite}
+  @keyframes pulseHot{
+    0%,100%{box-shadow:var(--shadow),0 0 0 1px var(--hotline),0 0 26px -12px rgba(255,107,107,.5)}
+    50%{box-shadow:var(--shadow),0 0 0 1px rgba(255,107,107,.65),0 0 46px -8px rgba(255,107,107,.75)}}
+  .ct.crisis .q{color:#ffd9d6} .ct.crisis a{color:#ff8e8e}
+  .lead{font-size:.9rem;color:var(--muted);margin:0 0 6px} .lead b{color:var(--ink)}
+  .foot{margin-top:28px;font-size:.76rem;color:var(--muted);text-align:center}
+  a.link{color:var(--accent);font-weight:700}
+  @media (max-width:720px){
+    section.show{grid-template-columns:1fr}
+    h1{font-size:1.72rem}
+    .wrap{padding:0 14px 64px} header.top{padding:24px 14px 12px}
+    nav.tabs .tab{font-size:.82rem;padding:11px 6px}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
 <header class="top">
@@ -238,14 +297,24 @@
   <!-- ============ WOLONTARIUSZE ============ -->
   <section id="wolontariusze">
     <style>
-.vol{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:9px 11px;margin:0 0 7px}
-.vrow{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.vname{font-weight:800;font-size:.96rem}
-.vtel{font-weight:800;color:var(--obiekt);text-decoration:none;white-space:nowrap;font-size:.9rem}
-.vtel.no{color:var(--muted);font-weight:600;font-size:.8rem}
-.vmeta{font-size:.8rem;color:var(--muted);margin-top:3px}
+.vol{position:relative;background:var(--glass);border:1px solid var(--hairline);border-radius:var(--radius);
+  padding:15px 16px;margin:0;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  box-shadow:var(--shadow),var(--inner);overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s,background .4s}
+.vol:hover{transform:translateY(-3px);border-color:var(--hairline-bright);background:var(--glass-2);
+  box-shadow:0 0 0 1px rgba(91,157,255,.35),0 30px 70px -28px rgba(0,0,0,.9)}
+.vol:after{content:"";position:absolute;right:13px;bottom:13px;width:26px;height:26px;border-radius:50%;
+  background:var(--glass-2) var(--arrow) center/13px no-repeat;border:1px solid var(--hairline);
+  opacity:0;transform:translateY(4px);transition:.35s;pointer-events:none}
+.vol:hover:after{opacity:.9;transform:none}
+.vrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.vname{font-weight:700;font-size:.97rem;color:var(--ink)}
+.vtel{font-weight:800;color:var(--accent);text-decoration:none;white-space:nowrap;font-size:.9rem}
+.vtel.no{color:var(--muted-2);font-weight:600;font-size:.78rem}
+.vmeta{font-size:.8rem;color:var(--muted);margin-top:7px;line-height:1.55}
 .vmeta b{color:var(--ink)}
-.vtag{display:inline-block;font-size:.66rem;font-weight:700;background:#ece9e1;border-radius:4px;padding:1px 6px;margin-right:6px;color:#6b6862}
+.vtag{display:inline-block;font-size:.64rem;font-weight:700;background:var(--amber-soft);color:var(--amber);
+  border:1px solid rgba(251,191,36,.3);border-radius:999px;padding:2px 9px;margin-right:7px}
 </style>
     <p class="lead">21 wolontariuszy · zbiórka <b>8:00</b> (Cafe Zamek) · koordynator: <b>Maciej</b>. Wszyscy: <b>demontaż</b> po 20:15. <br>(Gala = 16:00–20:15 · MG = Mini Granty 10:45–14:00 · rano = przewóz/rozstawianie)</p>
     <div class="blockhdr">🛡️ Stanowiska (posterunki) — koordynator + obsada</div>
